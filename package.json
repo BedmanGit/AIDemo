@@ -1,0 +1,38 @@
+{
+  "name": "live-voice-agent",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22.18.0" },
+  "workspaces": ["apps/*", "packages/*"],
+  "scripts": {
+    "dev": "concurrently -k -n server,web \"npm:dev:server\" \"npm:dev:web\"",
+    "dev:server": "node --import tsx apps/server/src/server.ts",
+    "dev:web": "vite --config apps/web/vite.config.ts",
+    "build": "npm run typecheck && vite build --config apps/web/vite.config.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run apps/server/src apps/web/src",
+    "test:e2e": "playwright test"
+  },
+  "dependencies": {
+    "@google/genai": "^1.0.0",
+    "dotenv": "^16.4.7",
+    "lucide-react": "^0.468.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@types/ws": "^8.5.13",
+    "@playwright/test": "^1.55.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^9.1.2",
+    "node": "^24.0.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.9.3",
+    "vite": "^6.0.0",
+    "vitest": "^5.1.0"
+  }
+}

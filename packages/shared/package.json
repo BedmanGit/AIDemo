@@ -1,0 +1,5 @@
+{
+  "name": "@voice-studio/shared",
+  "private": true,
+  "type": "module"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "@voice-studio/web",
+  "private": true,
+  "type": "module"
+}
